@@ -44,7 +44,7 @@
                 </thead>
                 <tbody v-show="Pets.length>0">
                     <tr v-for="pets in Pets">
-                        <td>{{pets.Image}}</td>
+                        <td><img :src=pets.Pet></td>
                         <td>{{pets.Name}}</td>
                         <td>{{pets.Type}}</td>
                         <td>{{pets.Species}}</td>
@@ -56,6 +56,7 @@
                 </tbody>
             </table>
             <button @click="Log=2">Register</button>
+            <button @click="Log=3">Adopt</button>
             <!--Admin-->
             <div v-for="user in User" v-show="user.Type==0">
                 <label for="">Admin</label>
@@ -73,7 +74,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="user in Users" v-sho2="user.Type!=0">
+                        <tr v-for="user in Users">
                             <td><img :src=user.picture.thumbnail alt=""></td>
                             <td>{{user.name.first}} {{user.name.last}}</td>
                             <td>{{user.login.username}}</td>
@@ -81,7 +82,7 @@
                             <td>{{user.phone}}</td>
                             <td>{{user.email}}</td>
                             <td>{{user.Pets}} / {{user.Adopt}}</td>
-                            <td><button>a</button></td>
+                            <td v-show="user.Type!=0"><button>a</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -106,14 +107,35 @@
             Species<input v-model="SpeciesP" type="text">
             Age<input v-model="AgeP" type="text">
             Color<input v-model="ColorP" type="text">
+            <div v-show="TypeP=='Cat'">
+                <input type="radio" id="c1" value="c1.jpg" v-model="ImageP">
+                <label for="c1.jpg"><img src="c1.jpg" @click="ImageP='c1.jpg'"></label><br>
+                <input type="radio" id="c2" value="c2.jpg" v-model="ImageP">
+                <label for="c2.jpg"><img src="c2.jpg" @click="ImageP='c2.jpg'"></label><br>
+                <input type="radio" id="c3" value="c3.jpg" v-model="ImageP">
+                <label for="c3.jpg"><img src="c3.jpg" @click="ImageP='c3.jpg'"></label><br>
+                <input type="radio" id="c4" value="c4.jpg" v-model="ImageP">
+                <label for="c4.jpg"><img src="c4.jpg" @click="ImageP='c4.jpg'"></label><br><br>
+            </div>
+            <div v-show="TypeP=='Dog'">
+                <input type="radio" id="d1" value="1" v-model="ImageP">
+                <label for="1"><img src="d1.jpg" @click="ImageP='1'"></label><br>
+                <input type="radio" id="d2" value="2" v-model="ImageP">
+                <label for="2"><img src="d2.jpg" @click="ImageP='2'"></label><br>
+                <input type="radio" id="d3" value="3" v-model="ImageP">
+                <label for="3"><img src="d3.jpg" @click="ImageP='3'"></label><br>
+                <input type="radio" id="d4" value="4" v-model="ImageP">
+                <label for="4"><img src="d4.jpg" @click="ImageP='4'"></label><br><br>
+            </div>
             <button @click="Register">Register</button>
-            
+
         </div>
         <!--End RegisterPet-->
         <label for="">----------</label>
         <!--Adopt-->
         <div v-show="Log==3">
             <label for="">Adopt</label>
+
             <table>
                 <thead>
                     <tr>
@@ -126,8 +148,15 @@
                         <th>Color</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody v-show="Pets.length>0">
+                    <tr v-for="pets in Pets" v-show="pets.Status=='Adoptable'">
+                        <td><img :src=pets.Pet></td>
+                        <td>{{pets.Name}}</td>
+                        <td>{{pets.Type}}</td>
+                        <td>{{pets.Species}}</td>
+                        <td>{{pets.Gender}}</td>
+                        <td>{{pets.Age}}</td>
+                        <td>{{pets.Color}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -2,15 +2,15 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            Userl: 'redleopard805',
-            Pass: 'tennis',
+            Userl: 'goldenmeercat349',
+            Pass: 'megadeth',
             NameP: '',
             TypeP: 'Cat',
             GenderP: 'Female',
             SpeciesP: '',
             AgeP: '',
             ColorP: '',
-            ImageP: 0,
+            ImageP: 'c1.jpg',
             User: [],
             Users: [],
             Log: 0,
