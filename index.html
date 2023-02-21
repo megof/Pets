@@ -16,7 +16,7 @@
     <!---->
     <div id="root">
         <!--Login-->
-        <div>
+        <div v-show="Log==0">
             Username<input v-model="Userl" type="text">
             <br>
             Pass<input v-model="Pass" type="password">
@@ -26,8 +26,9 @@
         <!--End Login-->
         <label for="">----------</label>
         <!--Main-->
-        <div>
+        <div v-show="Log==1">
             <label for="">Main</label>
+            <label v-for="user in User">{{user.login.username}}</label>
             <table>
                 <thead>
                     <tr>
@@ -41,16 +42,56 @@
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody v-show="Pets.length>0">
+                    <tr v-for="pets in Pets">
+                        <td>{{pets.Image}}</td>
+                        <td>{{pets.Name}}</td>
+                        <td>{{pets.Type}}</td>
+                        <td>{{pets.Species}}</td>
+                        <td>{{pets.Gender}}</td>
+                        <td>{{pets.Age}}</td>
+                        <td>{{pets.Color}}</td>
+                        <td>{{pets.Status}}</td>
                     </tr>
                 </tbody>
             </table>
+            <button @click="Log=2">Register</button>
+            <!--Admin-->
+            <div v-for="user in User" v-show="user.Type==0">
+                <label for="">Admin</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Gender</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Pets/Adopt</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="user in Users" v-sho2="user.Type!=0">
+                            <td><img :src=user.picture.thumbnail alt=""></td>
+                            <td>{{user.name.first}} {{user.name.last}}</td>
+                            <td>{{user.login.username}}</td>
+                            <td>{{user.gender}}</td>
+                            <td>{{user.phone}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.Pets}} / {{user.Adopt}}</td>
+                            <td><button>a</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--End Admin-->
         </div>
         <!--End Main-->
         <label for="">----------</label>
         <!--RegisterPet-->
-        <div>
+        <div v-show="Log==2">
             <label for="">RegisterPet</label>
             Name<input v-model="NameP" type="text">
             <select v-model="TypeP">
@@ -66,11 +107,12 @@
             Age<input v-model="AgeP" type="text">
             Color<input v-model="ColorP" type="text">
             <button @click="Register">Register</button>
+            
         </div>
         <!--End RegisterPet-->
         <label for="">----------</label>
         <!--Adopt-->
-        <div>
+        <div v-show="Log==3">
             <label for="">Adopt</label>
             <table>
                 <thead>
@@ -92,30 +134,7 @@
         </div>
         <!--End Adopt-->
         <label for="">----------</label>
-        <!--Admin-->
-        <div>
-            <label for="">Admin</label>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Gender</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Pets/Adopt</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!--End Admin-->
+
         <label for="">----------</label>
     </div>
     <script src="main.js"></script>
