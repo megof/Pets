@@ -49,16 +49,31 @@ createApp({
                 Color: this.ColorP,
                 Status: 'Adoptable',
             })
+            /*let User = '';
+            let Users = [];
+            this.Users.map(user => {
+                if (user.login.username == this.User.login.username) {
+                    User = user;
+                    User.Pets += 1;
+                    Users.push(User);
+                    this.User = User;
+                } else {
+                    Users.push(user);
+                }
+            });
+            localStorage.setItem('Users', JSON.stringify(this.Users));*/
             localStorage.setItem('Pets', JSON.stringify(this.Pets));
             swal(
                 'Success', 'Registered pet', 'success'
             )
+            this.User.Pets += 1;
             this.Log = 1;
         },
         async Results() {
             let Users = [];
             let User = '';
             let Type = 0;
+            let index = 0;
             await fetch('https://randomuser.me/api/?results=10')
                 .then((response) => response.json())
                 .then((data) => this.Users = data.results)

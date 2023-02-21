@@ -1,0 +1,96 @@
+body {
+    background-image: url('i.JPG');
+    background-size: cover;
+}
+
+#InSe {
+    background-color: #C9C9C9;
+    border-radius: 10px;
+}
+
+#t {
+    color: #342F2F;
+}
+
+#t1 {
+    color: white;
+}
+
+#t2 {
+    color: #adb4be;
+}
+
+#linea {
+    background-color: #5A5959;
+}
+
+#input {
+    border-radius: 10px;
+}
+
+#BtnGreen {
+    border-radius: 10px;
+    background-color: #55A031;
+}
+
+#BtnBlue {
+    border-radius: 10px;
+    background-color: #4A5A7A;
+}
+
+#BtnRed {
+    border-radius: 10px;
+    background-color: #B13D3D;
+}
+
+#card {
+    background-color: #6B6B6B;
+}
+
+#InP {
+    background-color: #A0A0A0;
+    border-radius: 10px;
+}
+
+#ImgRM {
+    width: 50%;
+}
+
+#cRP {
+    background-color: #D9D9D9;
+
+}
+
+.navbar {
+    overflow: hidden;
+    background-image: url('m.JPG');
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 3%;
+}
+
+.menu {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.con {
+    padding: 2%;
+    margin-top: 7%;
+}
+
+.imgp {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+.table{
+    text-align: center;
+}

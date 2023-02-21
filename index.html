@@ -16,81 +16,107 @@
     <!---->
     <div id="root">
         <!--Login-->
-        <div v-show="Log==0">
-            Username<input v-model="Userl" type="text">
+        <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-show="Log == 0">
             <br>
-            Pass<input v-model="Pass" type="password">
+            <legend id="t" class="text-center fw-bold">Iniciar sesión</legend>
             <br>
-            <button @click="Login">Login</button>
+            <br>
+            <input id="input" v-model="Userl" type="text" class="form-control" aria-describedby="emailHelp"
+                placeholder="Usuario" required>
+            <br>
+            <input id="input" v-model="Pass" type="password" class="form-control" aria-describedby="emailHelp"
+                placeholder="Password" required>
+            <br>
+            <div class="d-flex justify-content-center">
+                <button id="BtnBlue" class="btn  w-100 mb-2 text-center" @click="Login">
+                    <h5 id="t1" class="text-center fw-bold">Iniciar sesión</h5>
+                </button>
+            </div>
+            <br>
         </div>
         <!--End Login-->
-        <label for="">----------</label>
         <!--Main-->
         <div v-show="Log==1">
-            <label for="">Main</label>
-            <label v-for="user in User">{{user.login.username}}</label>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pet</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Species</th>
-                        <th>Gender</th>
-                        <th>Age</th>
-                        <th>Color</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody v-show="Pets.length>0">
-                    <tr v-for="pets in Pets">
-                        <td><img :src=pets.Pet></td>
-                        <td>{{pets.Name}}</td>
-                        <td>{{pets.Type}}</td>
-                        <td>{{pets.Species}}</td>
-                        <td>{{pets.Gender}}</td>
-                        <td>{{pets.Age}}</td>
-                        <td>{{pets.Color}}</td>
-                        <td>{{pets.Status}}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <button @click="Log=2">Register</button>
-            <button @click="Log=3">Adopt</button>
-            <!--Admin-->
-            <div v-for="user in User" v-show="user.Type==0">
-                <label for="">Admin</label>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Username</th>
-                            <th>Gender</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Pets/Adopt</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="user in Users">
-                            <td><img :src=user.picture.thumbnail alt=""></td>
-                            <td>{{user.name.first}} {{user.name.last}}</td>
-                            <td>{{user.login.username}}</td>
-                            <td>{{user.gender}}</td>
-                            <td>{{user.phone}}</td>
-                            <td>{{user.email}}</td>
-                            <td>{{user.Pets}} / {{user.Adopt}}</td>
-                            <td v-show="user.Type!=0"><button>a</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="navbar" v-for="user in User">
+                <img :src=user.picture.thumbnail class="imgp">
+                <label>{{user.login.username}}</label>
             </div>
-            <!--End Admin-->
+            <div class="con">
+                <div id="InSe" class="container w-95 mt-5 mb-5 w-50-responsive border">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Pet</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Species</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>Color</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody v-show="Pets.length>0">
+                            <tr v-for="pets in Pets">
+                                <td><img :src=pets.Pet class="imgp"></td>
+                                <td>{{pets.Name}}</td>
+                                <td>{{pets.Type}}</td>
+                                <td>{{pets.Species}}</td>
+                                <td>{{pets.Gender}}</td>
+                                <td>{{pets.Age}}</td>
+                                <td>{{pets.Color}}</td>
+                                <td>{{pets.Status}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button @click="Log=2" class="btn btn-primary a-btn-slide-text">
+                        <strong>Register</strong>
+                    </button>
+                    &nbsp;
+                    <button @click="Log=3" v-show="Pets.length>0" class="btn btn-success a-btn-slide-text">
+                        <strong>Adopt</strong>
+                    </button>
+                    <br>
+                    <br>
+                </div>
+                <!--Admin-->
+                <div v-for="user in User" v-show="user.Type==0" id="InSe"
+                    class="container w-95 mt-5 mb-5 w-50-responsive border">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Gender</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Pets/Adopt</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="user in Users">
+                                <td><img :src=user.picture.thumbnail class="imgp"></td>
+                                <td>{{user.name.first}} {{user.name.last}}</td>
+                                <td>{{user.login.username}}</td>
+                                <td>{{user.gender}}</td>
+                                <td>{{user.phone}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.Pets}} / {{user.Adopt}}</td>
+                                <td v-show="user.Type!=0">
+                                    <button class="btn btn-danger a-btn-slide-text">
+                                        <strong>Delete</strong>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--End Admin-->
+            </div>
         </div>
         <!--End Main-->
-        <label for="">----------</label>
         <!--RegisterPet-->
         <div v-show="Log==2">
             <label for="">RegisterPet</label>
@@ -118,20 +144,19 @@
                 <label for="c4.jpg"><img src="c4.jpg" @click="ImageP='c4.jpg'"></label><br><br>
             </div>
             <div v-show="TypeP=='Dog'">
-                <input type="radio" id="d1" value="1" v-model="ImageP">
-                <label for="1"><img src="d1.jpg" @click="ImageP='1'"></label><br>
-                <input type="radio" id="d2" value="2" v-model="ImageP">
-                <label for="2"><img src="d2.jpg" @click="ImageP='2'"></label><br>
-                <input type="radio" id="d3" value="3" v-model="ImageP">
-                <label for="3"><img src="d3.jpg" @click="ImageP='3'"></label><br>
-                <input type="radio" id="d4" value="4" v-model="ImageP">
-                <label for="4"><img src="d4.jpg" @click="ImageP='4'"></label><br><br>
+                <input type="radio" id="d1" value="d1.jpg" v-model="ImageP">
+                <label for="d1.jpg"><img src="d1.jpg" @click="ImageP='d1.jpg'"></label><br>
+                <input type="radio" id="d2" value="d2.jpg" v-model="ImageP">
+                <label for="d2.jpg"><img src="d2.jpg" @click="ImageP='d2.jpg'"></label><br>
+                <input type="radio" id="d3" value="d3.jpg" v-model="ImageP">
+                <label for="d3.jpg"><img src="d3.jpg" @click="ImageP='d3.jpg'"></label><br>
+                <input type="radio" id="d4" value="d4.jpg" v-model="ImageP">
+                <label for="d4.jpg"><img src="d4.jpg" @click="ImageP='d4.jpg'"></label><br><br>
             </div>
             <button @click="Register">Register</button>
 
         </div>
         <!--End RegisterPet-->
-        <label for="">----------</label>
         <!--Adopt-->
         <div v-show="Log==3">
             <label for="">Adopt</label>
@@ -162,9 +187,6 @@
             </table>
         </div>
         <!--End Adopt-->
-        <label for="">----------</label>
-
-        <label for="">----------</label>
     </div>
     <script src="main.js"></script>
 </body>
