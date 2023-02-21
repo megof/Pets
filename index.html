@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,115 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <!---->
+    <div id="root">
+        <!--Login-->
+        <div>
+            Username<input v-model="Userl" type="text">
+            <br>
+            Pass<input v-model="Pass" type="password">
+            <br>
+            <button @click="Login">Login</button>
+        </div>
+        <!--End Login-->
+        <label for="">----------</label>
+        <!--Main-->
+        <div>
+            <label for="">Main</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pet</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Species</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Color</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Main-->
+        <label for="">----------</label>
+        <!--RegisterPet-->
+        <div>
+            <label for="">RegisterPet</label>
+            Name<input v-model="NameP" type="text">
+            <select v-model="TypeP">
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+            </select>
+            <select v-model="GenderP">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+            <br>
+            Species<input v-model="SpeciesP" type="text">
+            Age<input v-model="AgeP" type="text">
+            Color<input v-model="ColorP" type="text">
+            <button @click="Register">Register</button>
+        </div>
+        <!--End RegisterPet-->
+        <label for="">----------</label>
+        <!--Adopt-->
+        <div>
+            <label for="">Adopt</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pet</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Species</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Adopt-->
+        <label for="">----------</label>
+        <!--Admin-->
+        <div>
+            <label for="">Admin</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Pets/Adopt</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End Admin-->
+        <label for="">----------</label>
+    </div>
     <script src="main.js"></script>
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </html>
