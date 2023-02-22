@@ -73,7 +73,6 @@ createApp({
             let Users = [];
             let User = '';
             let Type = 0;
-            let index = 0;
             await fetch('https://randomuser.me/api/?results=10')
                 .then((response) => response.json())
                 .then((data) => this.Users = data.results)

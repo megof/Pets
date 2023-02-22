@@ -118,49 +118,94 @@
         </div>
         <!--End Main-->
         <!--RegisterPet-->
-        <div v-show="Log==2">
-            <label for="">RegisterPet</label>
-            Name<input v-model="NameP" type="text">
-            <select v-model="TypeP">
+        <div id="InSe" class="container w-25 mt-5 mb-5  w-50-responsive border" v-show="Log==2">
+            <br>
+            <legend id="t" class="text-center fw-bold">Register</legend>
+            <br>
+            <br>
+            <input id="input" v-model="NameP" type="input" class="form-control" aria-describedby="emailHelp"
+                placeholder="Name" required>
+            <select id="input" v-model="TypeP" class="form-control" aria-describedby="emailHelp">
                 <option value="Cat">Cat</option>
                 <option value="Dog">Dog</option>
             </select>
-            <select v-model="GenderP">
+            <select id="input" v-model="GenderP" class="form-control" aria-describedby="emailHelp">
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
             </select>
-            <br>
-            Species<input v-model="SpeciesP" type="text">
-            Age<input v-model="AgeP" type="text">
-            Color<input v-model="ColorP" type="text">
+            <input id="input" v-model="SpeciesP" type="input" class="form-control" aria-describedby="emailHelp"
+                placeholder="Species" required>
+            <input id="input" v-model="AgeP" type="number" class="form-control" aria-describedby="emailHelp"
+                placeholder="Age" required>
+            <input id="input" v-model="ColorP" type="input" class="form-control" aria-describedby="emailHelp"
+                placeholder="Color" required>
             <div v-show="TypeP=='Cat'">
-                <input type="radio" id="c1" value="c1.jpg" v-model="ImageP">
-                <label for="c1.jpg"><img src="c1.jpg" @click="ImageP='c1.jpg'"></label><br>
-                <input type="radio" id="c2" value="c2.jpg" v-model="ImageP">
-                <label for="c2.jpg"><img src="c2.jpg" @click="ImageP='c2.jpg'"></label><br>
-                <input type="radio" id="c3" value="c3.jpg" v-model="ImageP">
-                <label for="c3.jpg"><img src="c3.jpg" @click="ImageP='c3.jpg'"></label><br>
-                <input type="radio" id="c4" value="c4.jpg" v-model="ImageP">
-                <label for="c4.jpg"><img src="c4.jpg" @click="ImageP='c4.jpg'"></label><br><br>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="radio" id="c1" value="c1.jpg" v-model="ImageP">
+                                <label for="c1.jpg"><img src="c1.jpg" @click="ImageP='c1.jpg'" class="imgp"></label><br>
+                            </th>
+                            <th>
+                                <input type="radio" id="c2" value="c2.jpg" v-model="ImageP">
+                                <label for="c2.jpg"><img src="c2.jpg" @click="ImageP='c2.jpg'" class="imgp"></label><br>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="radio" id="c3" value="c3.jpg" v-model="ImageP">
+                                <label for="c3.jpg"><img src="c3.jpg" @click="ImageP='c3.jpg'" class="imgp"></label><br>
+                            </td>
+                            <td>
+                                <input type="radio" id="c4" value="c4.jpg" v-model="ImageP">
+                                <label for="c4.jpg"><img src="c4.jpg" @click="ImageP='c4.jpg'" class="imgp"></label><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div v-show="TypeP=='Dog'">
-                <input type="radio" id="d1" value="d1.jpg" v-model="ImageP">
-                <label for="d1.jpg"><img src="d1.jpg" @click="ImageP='d1.jpg'"></label><br>
-                <input type="radio" id="d2" value="d2.jpg" v-model="ImageP">
-                <label for="d2.jpg"><img src="d2.jpg" @click="ImageP='d2.jpg'"></label><br>
-                <input type="radio" id="d3" value="d3.jpg" v-model="ImageP">
-                <label for="d3.jpg"><img src="d3.jpg" @click="ImageP='d3.jpg'"></label><br>
-                <input type="radio" id="d4" value="d4.jpg" v-model="ImageP">
-                <label for="d4.jpg"><img src="d4.jpg" @click="ImageP='d4.jpg'"></label><br><br>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="radio" id="d1" value="d1.jpg" v-model="ImageP">
+                                <label for="d1.jpg"><img src="d1.jpg" @click="ImageP='d1.jpg'" class="imgp"></label><br>
+                            </th>
+                            <th>
+                                <input type="radio" id="d2" value="d2.jpg" v-model="ImageP">
+                                <label for="d2.jpg"><img src="d2.jpg" @click="ImageP='d2.jpg'" class="imgp"></label><br>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="radio" id="d3" value="d3.jpg" v-model="ImageP">
+                                <label for="d3.jpg"><img src="d3.jpg" @click="ImageP='d3.jpg'" class="imgp"></label><br>
+                            </td>
+                            <td>
+                                <input type="radio" id="d4" value="d4.jpg" v-model="ImageP">
+                                <label for="d4.jpg"><img src="d4.jpg" @click="ImageP='d4.jpg'" class="imgp"></label><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <button @click="Register">Register</button>
+            <div class="d-flex justify-content-center">
+                <button id="BtnBlue" class="btn  w-100 mb-2 text-center" @click="Register">
+                    <h5 id="t1" class="text-center fw-bold">Register</h5>
+                </button>
+            </div>
 
         </div>
         <!--End RegisterPet-->
         <!--Adopt-->
         <div v-show="Log==3">
             <label for="">Adopt</label>
-
             <table>
                 <thead>
                     <tr>
