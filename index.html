@@ -91,7 +91,6 @@
                                 <th>Gender</th>
                                 <th>Phone</th>
                                 <th>Email</th>
-                                <th>Pets/Adopt</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -103,9 +102,9 @@
                                 <td>{{user.gender}}</td>
                                 <td>{{user.phone}}</td>
                                 <td>{{user.email}}</td>
-                                <td>{{user.Pets}} / {{user.Adopt}}</td>
-                                <td v-show="user.Type!=0">
-                                    <button class="btn btn-danger a-btn-slide-text">
+                                <td v-for="userl in User"
+                                    v-show="user.Type!=0 && user.login.username!=userl.login.username">
+                                    <button @click="Delete(user)" class="btn btn-danger a-btn-slide-text">
                                         <strong>Delete</strong>
                                     </button>
                                 </td>
@@ -204,31 +203,46 @@
         </div>
         <!--End RegisterPet-->
         <!--Adopt-->
-        <div  id="InSe" class="container w-85 mt-5 mb-5  w-50-responsive border" v-show="Log==0">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pet</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Species</th>
-                        <th>Gender</th>
-                        <th>Age</th>
-                        <th>Color</th>
-                    </tr>
-                </thead>
-                <tbody v-show="Pets.length>0">
-                    <tr v-for="pets in Pets" v-show="pets.Status=='Adoptable'">
-                        <td><img :src=pets.Pet></td>
-                        <td>{{pets.Name}}</td>
-                        <td>{{pets.Type}}</td>
-                        <td>{{pets.Species}}</td>
-                        <td>{{pets.Gender}}</td>
-                        <td>{{pets.Age}}</td>
-                        <td>{{pets.Color}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div id="InSe" class="container w-85 mt-5 mb-5  w-50-responsive border" v-show="Log==3">
+            <div class="container">
+                <br>
+                <legend id="t" class="text-center fw-bold">Adopt</legend>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Card -->
+                        <div id="card" class="card mb-3" v-for="pets in Pets" v-show="pets.Status=='Adoptable'">
+                            <div class="row g-0">
+                                <div class="col-md-3">
+                                    <img :src=pets.Pet class="img-fluid rounded-start imgp" alt="Nombre de la imagen">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="card-body card-success">
+                                        <h5 id="t1" class="card-title fw-bold">{{pets.Name}}</h5>
+                                        <h8 id="t1" class="card-text fw-bold">{{pets.Type}}</h8>
+                                        <br>
+                                        <h8 id="t1" class="card-text fw-bold">{{pets.Species}}</h8>
+                                        <br>
+                                        <h8 id="t1" class="card-text fw-bold">{{pets.Gender}}</h8>
+                                        <br>
+                                        <h8 id="t1" class="card-text fw-bold">{{pets.Age}}</h8>
+                                        <br>
+                                        <h8 id="t1" class="card-text fw-bold">{{pets.Color}}</h8>
+                                        <br>
+                                        <br>
+                                        <button id="BtnGreen" class="btn h-5" @click="Adoptp(pets)">
+                                            <h8 id="t1" class="text-center fw-bold">Adopt</h8>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
         </div>
         <!--End Adopt-->
     </div>

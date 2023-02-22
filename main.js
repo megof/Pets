@@ -2,8 +2,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            Userl: 'goldenmeercat349',
-            Pass: 'megadeth',
+            Userl: 'organicsnake203',
+            Pass: 'jabroni',
             NameP: '',
             TypeP: 'Cat',
             GenderP: 'Female',
@@ -88,6 +88,26 @@ createApp({
             })
             this.Users = Users;
             localStorage.setItem('Users', JSON.stringify(this.Users))
+        },
+        Adoptp(pet) {
+            pet.Status = 'Adopted';
+            localStorage.setItem('Pets', JSON.stringify(this.Pets));
+            swal(
+                'Success', 'Congratulations, you have adopted a pet!!!', 'success'
+            );
+        },
+        Delete(User) {
+            let Users = [];
+            this.Users.map(element => {
+                if (element != User) {
+                    Users.push(element);
+                }
+            });
+            this.Users = Users;
+            localStorage.setItem('Users', JSON.stringify(this.Users))
+            swal(
+                'Success', 'User successfully deleted', 'success'
+            );
         },
     },
     mounted() {
